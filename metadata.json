@@ -1,0 +1,6 @@
+{
+  "name": "نظام إرسال الرسائل الجماعية",
+  "description": "تطبيق ويب متكامل واحترافي لإدارة جهات الاتصال وإرسال رسائل SMS جماعية عبر تطبيق الرسائل الافتراضي في هواتف Android.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
