@@ -8,6 +8,7 @@ interface NavbarProps {
   setActiveTab: (tab: ActiveTab) => void;
   onOpenImportModal: () => void;
   onOpenSettingsModal: () => void;
+  onOpenInstallModal: () => void;
   selectedCount: number;
 }
 
@@ -16,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   setActiveTab,
   onOpenImportModal,
   onOpenSettingsModal,
+  onOpenInstallModal,
   selectedCount,
 }) => {
   return (
@@ -89,19 +91,28 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </nav>
 
-          {/* Action Zone: 1 Primary CTA + Settings */}
+          {/* Action Zone: 1 Primary CTA + Install Phone + Settings */}
           <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={onOpenInstallModal}
+              title="تثبيت التطبيق على الجوال"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-lg transition-colors whitespace-nowrap cursor-pointer shadow-2xs"
+            >
+              <Smartphone className="w-4 h-4 text-emerald-600" />
+              <span className="hidden sm:inline">تثبيت بالجوال</span>
+              <span className="sm:hidden">تثبيت</span>
+            </button>
             <button
               onClick={onOpenImportModal}
               className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 active:bg-emerald-800 transition-colors shadow-sm whitespace-nowrap cursor-pointer"
             >
               <Upload className="w-4 h-4" />
-              <span>استيراد ملف الأرقام</span>
+              <span>استيراد ملف</span>
             </button>
             <button
               onClick={onOpenSettingsModal}
               title="إعدادات الإرسال"
-              className="p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+              className="p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
             >
               <Settings className="w-5 h-5" />
             </button>

@@ -10,6 +10,7 @@ interface DashboardStatsProps {
   onSelectAllValid: () => void;
   onNavigateToCompose: () => void;
   onOpenImportModal: () => void;
+  onOpenInstallModal: () => void;
 }
 
 export const DashboardStats: React.FC<DashboardStatsProps> = ({
@@ -20,6 +21,7 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
   onSelectAllValid,
   onNavigateToCompose,
   onOpenImportModal,
+  onOpenInstallModal,
 }) => {
   return (
     <div className="space-y-6">
@@ -50,6 +52,13 @@ export const DashboardStats: React.FC<DashboardStatsProps> = ({
             >
               <Plus className="w-4 h-4" />
               <span>استيراد ملف أرقام</span>
+            </button>
+            <button
+              onClick={onOpenInstallModal}
+              className="px-4 py-2 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 font-semibold text-xs sm:text-sm rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              <Smartphone className="w-4 h-4 text-emerald-400" />
+              <span>تثبيت التطبيق على الجوال</span>
             </button>
             <button
               onClick={() => downloadSampleExcel()}

@@ -17,6 +17,7 @@ import { FileImportModal } from './components/FileImportModal';
 import { SmsDispatchModal } from './components/SmsDispatchModal';
 import { SequentialSendModal } from './components/SequentialSendModal';
 import { SettingsModal } from './components/SettingsModal';
+import { InstallPromptModal } from './components/InstallPromptModal';
 import { CheckCircle2, AlertCircle, Info } from 'lucide-react';
 
 export default function App() {
@@ -35,6 +36,7 @@ export default function App() {
   const [isDispatchModalOpen, setIsDispatchModalOpen] = useState(false);
   const [isSequentialModalOpen, setIsSequentialModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+  const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
 
   // Floating feedback banner
   const [toastMessage, setToastMessage] = useState<{ text: string; type: 'success' | 'info' | 'error' } | null>(null);
@@ -268,6 +270,7 @@ export default function App() {
         setActiveTab={setActiveTab}
         onOpenImportModal={() => setIsImportModalOpen(true)}
         onOpenSettingsModal={() => setIsSettingsModalOpen(true)}
+        onOpenInstallModal={() => setIsInstallModalOpen(true)}
         selectedCount={selectedCount}
       />
 
@@ -284,6 +287,7 @@ export default function App() {
               onSelectAllValid={handleSelectOnlyValid}
               onNavigateToCompose={() => setActiveTab('compose')}
               onOpenImportModal={() => setIsImportModalOpen(true)}
+              onOpenInstallModal={() => setIsInstallModalOpen(true)}
             />
 
             {/* Quick Contacts Table Preview */}
@@ -468,6 +472,11 @@ export default function App() {
         onExportAllData={handleExportAllData}
         onImportAllData={handleImportAllData}
         onResetAllData={handleResetAllData}
+      />
+
+      <InstallPromptModal
+        isOpen={isInstallModalOpen}
+        onClose={() => setIsInstallModalOpen(false)}
       />
     </div>
   );
